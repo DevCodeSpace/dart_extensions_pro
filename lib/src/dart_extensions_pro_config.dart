@@ -12,8 +12,9 @@ extension PaddingExtension on Widget {
   /// [b] - Adds padding on the bottom side if specified.
 
   /// Adds padding equally on all sides if specified.
-  Widget p(double all) {
+  Widget p(double all, {Key? key}) {
     return Padding(
+      key: key,
       padding: EdgeInsets.all(all),
       child: this,
     );
@@ -25,8 +26,10 @@ extension PaddingExtension on Widget {
     double? t, // Adds padding on the top side if specified.
     double? r, // Adds padding on the right side if specified.
     double? b, // Adds padding on the bottom side if specified.
+    Key? key,
   }) {
     return Padding(
+      key: key,
       padding: EdgeInsets.only(
         left: l ?? 0, // Sets left padding
         top: t ?? 0, // Sets top padding
@@ -38,12 +41,42 @@ extension PaddingExtension on Widget {
   }
 
   /// Adds padding based on the Symmetric
-  Widget pS({double? h, double? v}) {
+  Widget pSymmetric({
+    double? h,
+    double? v,
+    Key? key,
+  }) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: h ?? 0, vertical: v ?? 0),
+      key: key,
+      padding: EdgeInsets.symmetric(
+        horizontal: h ?? 0,
+        vertical: v ?? 0,
+      ),
       child: this,
     );
   }
+
+  /// Gives custom padding horizontally.
+  Padding pH(
+    double value, {
+    Key? key,
+  }) =>
+      Padding(
+        key: key,
+        padding: EdgeInsets.symmetric(horizontal: value),
+        child: this,
+      );
+
+  /// Gives custom padding vertically.
+  Padding pV(
+    double value, {
+    Key? key,
+  }) =>
+      Padding(
+        key: key,
+        padding: EdgeInsets.symmetric(vertical: value),
+        child: this,
+      );
 }
 
 /// An extension on the Widget class to add margin functionality
@@ -87,7 +120,7 @@ extension MarginExtension on Widget {
   }
 
   /// Adds margin symmetrically based on the specified horizontal and vertical values.
-  Widget mS({double? h, double? v}) {
+  Widget mSymmetric({double? h, double? v}) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: h ?? 0, vertical: v ?? 0),
       child: this,
@@ -107,6 +140,46 @@ extension WidgetExtensions on Widget {
   /// ```
   Widget centered() {
     return Center(child: this);
+  }
+
+  /// Aligns the widget to the bottom center of its parent
+  Widget alignBottomCenter() {
+    return Align(alignment: Alignment.bottomCenter, child: this);
+  }
+
+  /// Aligns the widget to the bottom left of its parent
+  Widget alignBottomLeft() {
+    return Align(alignment: Alignment.bottomLeft, child: this);
+  }
+
+  /// Aligns the widget to the bottom right of its parent
+  Widget alignBottomRight() {
+    return Align(alignment: Alignment.bottomRight, child: this);
+  }
+
+  /// Aligns the widget to the center left of its parent
+  Widget alignCenterLeft() {
+    return Align(alignment: Alignment.centerLeft, child: this);
+  }
+
+  /// Aligns the widget to the center right of its parent
+  Widget alignCenterRight() {
+    return Align(alignment: Alignment.centerRight, child: this);
+  }
+
+  /// Aligns the widget to the top center of its parent
+  Widget alignTopCenter() {
+    return Align(alignment: Alignment.topCenter, child: this);
+  }
+
+  /// Aligns the widget to the top left of its parent
+  Widget alignTopLeft() {
+    return Align(alignment: Alignment.topLeft, child: this);
+  }
+
+  /// Aligns the widget to the top right of its parent
+  Widget alignTopRight() {
+    return Align(alignment: Alignment.topRight, child: this);
   }
 
   // Border Extension
@@ -374,4 +447,118 @@ extension BuildContextExtensions on BuildContext {
   /// Shows a Snackbar with the provided message in the current context.
   void showSnackBar(String message) =>
       ScaffoldMessenger.of(this).showSnackBar(SnackBar(content: Text(message)));
+}
+
+/// Extension on [Widget] to simplify adding scrollable behavior
+extension ScrollExtensions on Widget {
+  /// Wraps the current widget in a vertically scrollable [SingleChildScrollView]
+  ///
+  /// Parameters:
+  /// - [controller]: Optional scroll controller for controlling the scroll view.
+  /// - [physics]: Defines the scrolling behavior (e.g., bouncing, clamping).
+  /// - [primary]: Whether this is the primary scroll view associated with the parent PrimaryScrollController.
+  /// - [padding]: Optional padding around the scrollable child.
+  /// - [reverse]: Whether the scroll view scrolls in the reading direction (default: false).
+  /// - [restorationId]: Used to save and restore scroll position.
+  /// - [clipBehavior]: How to clip content that exceeds the scroll view’s bounds (default: [Clip.hardEdge]).
+  Widget verticalScroll({
+    ScrollController? controller,
+    ScrollPhysics? physics,
+    bool? primary,
+    EdgeInsetsGeometry? padding,
+    bool reverse = false,
+    String? restorationId,
+    Clip clipBehavior = Clip.hardEdge,
+  }) {
+    return SingleChildScrollView(
+      controller: controller,
+      physics: physics,
+      primary: primary,
+      padding: padding,
+      scrollDirection: Axis.vertical,
+      reverse: reverse,
+      restorationId: restorationId,
+      clipBehavior: clipBehavior,
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+      child: this,
+    );
+  }
+
+  /// Wraps the current widget in a horizontally scrollable [SingleChildScrollView]
+  ///
+  /// Parameters:
+  /// - [controller]: Optional scroll controller for controlling the scroll view.
+  /// - [physics]: Defines the scrolling behavior (e.g., bouncing, clamping).
+  /// - [primary]: Whether this is the primary scroll view associated with the parent PrimaryScrollController.
+  /// - [padding]: Optional padding around the scrollable child.
+  /// - [reverse]: Whether the scroll view scrolls in the reading direction (default: false).
+  /// - [restorationId]: Used to save and restore scroll position.
+  /// - [clipBehavior]: How to clip content that exceeds the scroll view’s bounds (default: [Clip.hardEdge]).
+  Widget horizontalScroll({
+    ScrollController? controller,
+    ScrollPhysics? physics,
+    bool? primary,
+    EdgeInsetsGeometry? padding,
+    bool reverse = false,
+    String? restorationId,
+    Clip clipBehavior = Clip.hardEdge,
+  }) {
+    return SingleChildScrollView(
+      controller: controller,
+      physics: physics,
+      primary: primary,
+      padding: padding,
+      scrollDirection: Axis.horizontal,
+      reverse: reverse,
+      restorationId: restorationId,
+      clipBehavior: clipBehavior,
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+      child: this,
+    );
+  }
+}
+
+class Space extends StatelessWidget {
+  final double size;
+  final Color? color;
+
+  const Space(this.size, {this.color, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final isInRow = _isInRow(context);
+
+    if (color == null) {
+      return SizedBox(
+        width: isInRow ? size : 0,
+        height: isInRow ? 0 : size,
+      );
+    }
+
+    return Container(
+      width: isInRow ? size : 1,
+      height: isInRow ? 1 : size,
+      color: color,
+    );
+  }
+
+  bool _isInRow(BuildContext context) {
+    return context.findAncestorWidgetOfExactType<Row>() != null;
+  }
+}
+
+extension HeightWidth on num {
+  ///
+  ///Converts the number into a [SizedBox] with the width as that number.
+  ///
+  Widget get wBox => SizedBox(
+        width: toDouble(),
+      );
+
+  ///
+  ///Converts the number into a [SizedBox] with the height as that number.
+  ///
+  Widget get hBox => SizedBox(
+        height: toDouble(),
+      );
 }

@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/DevCodeSpace/dart_extensions_pro/main/assets/banner1.png"/>
+<img src="assets/banner1.png" alt="Dart Extensions Pro"/>
 
 ## dart_extensions_pro
 
@@ -34,7 +34,7 @@ Add dependency to your `pubspec.yaml` file & run Pub get
 
 ```yaml
 dependencies:
-  dart_extensions_pro: ^0.0.1
+  dart_extensions_pro: ^0.0.2
 ```
 And import package into your class file
 
@@ -174,6 +174,7 @@ String Map<K, V>.toJson();  // Converts the map into a JSON string.
 
 ## Code Contributors
 
-[![](https://raw.githubusercontent.com/DevCodeSpace/dart_extensions_pro/refs/heads/main/assets/contributors.png)](https://github.com/DevCodeSpace/dart_extensions_pro/graphs/contributors)
+<img src="assets/contributors.png" width="250" alt="Dart Extensions Pro contributors" />
+
 ---
 >Made with ❤️ by the DevCodeSpace

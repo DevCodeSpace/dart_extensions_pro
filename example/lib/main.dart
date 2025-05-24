@@ -188,384 +188,428 @@ class MyWidget extends StatelessWidget {
         title: const Text("dev extention example"),
       ),
       body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              //add padding on all sides
-              Container().p(10),
-              //add padding only from left
-              Container().pOnly(l: 10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            //add padding on all sides
+            Container().p(10),
+            //add padding only from left
+            Container().pOnly(l: 10),
 
-              /// Padding
-              // Container(
-              //   height: 150,
-              //   color: Colors.amberAccent,
-              //   child: const Text('Hello, world!')
-              //       .p(10), // Adds 10 pixels of padding on all sides
-              // ), // Adds 10 pixels of margin on  bottom
+            /// Padding
+            // Container(
+            //   height: 150,
+            //   color: Colors.amberAccent,
+            //   child: const Text('Hello, world!')
+            //       .p(10), // Adds 10 pixels of padding on all sides
+            // ), // Adds 10 pixels of margin on  bottom
 
-              // Container(
-              //   height: 150,
-              //   color: Colors.blueAccent,
-              //   child: const Text('Hello, world!')
-              //       .pOnly(l: 10), // Adds 10 pixels of padding on the left side
-              // ),
+            // Container(
+            //   height: 150,
+            //   color: Colors.blueAccent,
+            //   child: const Text('Hello, world!')
+            //       .pOnly(l: 10), // Adds 10 pixels of padding on the left side
+            // ),
 
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children: [
-              //     Container(
-              //       height: 150,
-              //       color: Colors.greenAccent,
-              //       child: const Text('Hello, world!').pS(
-              //           h: 10,
-              //           v: 5), // Adds symmetric padding (10 horizontal, 5 vertical)
-              //     ),
-              //     Container(
-              //       height: 150,
-              //       color: Colors.greenAccent,
-              //       child: const Text('Hello, world!').pS(
-              //           h: 10,
-              //           v: 5), // Adds symmetric padding (10 horizontal, 5 vertical)
-              //     ),
-              //   ],
-              // ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     Container(
+            //       height: 150,
+            //       color: Colors.greenAccent,
+            //       child: const Text('Hello, world!').pSymmetric(
+            //           h: 10,
+            //           v: 5), // Adds symmetric padding (10 horizontal, 5 vertical)
+            //     ),
+            //     Container(
+            //       height: 150,
+            //       color: Colors.greenAccent,
+            //       child: const Text('Hello, world!').pSymmetric(
+            //           h: 10,
+            //           v: 5), // Adds symmetric padding (10 horizontal, 5 vertical)
+            //     ),
+            //   ],
+            // ),
 
-              /// Margin
-              // Container(
-              //   height: 150,
-              //   color: Colors.amberAccent,
-              //   child: const Text('Hello, world!')
-              //       .m(10), // Adds 10 pixels of margin on all sides
-              // ),
+            /// Margin
+            // Container(
+            //   height: 150,
+            //   color: Colors.amberAccent,
+            //   child: const Text('Hello, world!')
+            //       .m(10), // Adds 10 pixels of margin on all sides
+            // ),
 
-              /// Example of adding margin only to specific sides
-              // Container(
-              //   height: 150,
-              //   color: Colors.blueAccent,
-              //   child: const Text('Hello, world!').mOnly(
-              //       l: 10,
-              //       t: 20,
-              //       r: 10,
-              //       b: 5), // Adds 10 pixels of margin on left and right, 20 pixels on top, and 5 pixels on bottom
-              // ),
+            /// Example of adding margin only to specific sides
+            // Container(
+            //   height: 150,
+            //   color: Colors.blueAccent,
+            //   child: const Text('Hello, world!').mOnly(
+            //       l: 10,
+            //       t: 20,
+            //       r: 10,
+            //       b: 5), // Adds 10 pixels of margin on left and right, 20 pixels on top, and 5 pixels on bottom
+            // ),
 
-              /// Example of adding symmetric margin
-              // Container(
-              //   height: 150,
-              //   color: Colors.greenAccent,
-              //   child: const Text('Hello, world!').mS(
-              //       h: 10,
-              //       v: 5), // Adds symmetric margin (10 horizontal, 5 vertical)
-              // ),
+            /// Example of adding symmetric margin
+            // Container(
+            //   height: 150,
+            //   color: Colors.greenAccent,
+            //   child: const Text('Hello, world!').mSymmetric(
+            //       h: 10,
+            //       v: 5), // Adds symmetric margin (10 horizontal, 5 vertical)
+            // ),
 
-              /// Using the onInkTap extension
-              // Container(
-              //   padding: const EdgeInsets.all(16.0),
-              //   decoration: BoxDecoration(
-              //     color: Colors.blue,
-              //     borderRadius: BorderRadius.circular(8.0),
-              //   ),
-              //   child: const Text(
-              //     'Ink Tap Me',
-              //     style: TextStyle(color: Colors.white),
-              //   ),
-              // ).onInkTap(() {
-              //   'ink tapped!'.logMsg();
-              // }),
-              // // Using the onTap extension
-              // Container(
-              //   padding: const EdgeInsets.all(16.0),
-              //   decoration: BoxDecoration(
-              //     color: Colors.green,
-              //     borderRadius: BorderRadius.circular(8.0),
-              //   ),
-              //   child: const Text(
-              //     'Tap Me',
-              //     style: TextStyle(color: Colors.white),
-              //   ),
-              // ).onTap(
-              //   () {
-              //     'tapped!'.logMsg();
-              //   },
-              // ),
-              /// Using the onDoubleTap extension
-              // Container(
-              //   padding: const EdgeInsets.all(16.0),
-              //   decoration: BoxDecoration(
-              //     color: Colors.red,
-              //     borderRadius: BorderRadius.circular(8.0),
-              //   ),
-              //   child: const Text(
-              //     'Double Tap Me',
-              //     style: TextStyle(color: Colors.white),
-              //   ),
-              // ).onDoubleTap(
-              //   () {
-              //     'double-tapped!'.logMsg();
-              //   },
-              // ),
+            /// Using the onInkTap extension
+            // Container(
+            //   padding: const EdgeInsets.all(16.0),
+            //   decoration: BoxDecoration(
+            //     color: Colors.blue,
+            //     borderRadius: BorderRadius.circular(8.0),
+            //   ),
+            //   child: const Text(
+            //     'Ink Tap Me',
+            //     style: TextStyle(color: Colors.white),
+            //   ),
+            // ).onInkTap(() {
+            //   'ink tapped!'.logMsg();
+            // }),
+            // // Using the onTap extension
+            // Container(
+            //   padding: const EdgeInsets.all(16.0),
+            //   decoration: BoxDecoration(
+            //     color: Colors.green,
+            //     borderRadius: BorderRadius.circular(8.0),
+            //   ),
+            //   child: const Text(
+            //     'Tap Me',
+            //     style: TextStyle(color: Colors.white),
+            //   ),
+            // ).onTap(
+            //   () {
+            //     'tapped!'.logMsg();
+            //   },
+            // ),
+            /// Using the onDoubleTap extension
+            // Container(
+            //   padding: const EdgeInsets.all(16.0),
+            //   decoration: BoxDecoration(
+            //     color: Colors.red,
+            //     borderRadius: BorderRadius.circular(8.0),
+            //   ),
+            //   child: const Text(
+            //     'Double Tap Me',
+            //     style: TextStyle(color: Colors.white),
+            //   ),
+            // ).onDoubleTap(
+            //   () {
+            //     'double-tapped!'.logMsg();
+            //   },
+            // ),
 
-              // // Using the onTapCancel extension
-              // Container(
-              //   padding: const EdgeInsets.all(16.0),
-              //   decoration: BoxDecoration(
-              //     color: Colors.yellow,
-              //     borderRadius: BorderRadius.circular(8.0),
-              //   ),
-              //   child: const Text(
-              //     'Tap Cancel Me',
-              //     style: TextStyle(color: Colors.white),
-              //   ),
-              // ).onTapCancel(
-              //   () {
-              //     'tap canceled!'.logMsg();
-              //   },
-              // ),
+            // // Using the onTapCancel extension
+            // Container(
+            //   padding: const EdgeInsets.all(16.0),
+            //   decoration: BoxDecoration(
+            //     color: Colors.yellow,
+            //     borderRadius: BorderRadius.circular(8.0),
+            //   ),
+            //   child: const Text(
+            //     'Tap Cancel Me',
+            //     style: TextStyle(color: Colors.white),
+            //   ),
+            // ).onTapCancel(
+            //   () {
+            //     'tap canceled!'.logMsg();
+            //   },
+            // ),
 
-              // // Using the  onLongPress Extension
-              // Container(
-              //   padding: const EdgeInsets.all(20),
-              //   color: Colors.purple,
-              //   child: const Text('LongPress Gesture').onLongPress(() {
-              //     'LongPress Gesture Detected'.logMsg();
-              //   }),
-              // ),
-              // const SizedBox(height: 20),
+            // // Using the  onLongPress Extension
+            // Container(
+            //   padding: const EdgeInsets.all(20),
+            //   color: Colors.purple,
+            //   child: const Text('LongPress Gesture').onLongPress(() {
+            //     'LongPress Gesture Detected'.logMsg();
+            //   }),
+            // ),
+            // const SizedBox(height: 20),
 
-              // // Using the  onTapDown Extension
-              // Container(
-              //   padding: const EdgeInsets.all(20),
-              //   color: Colors.teal,
-              //   child: const Text('TapDown Gesture').onTapDown((details) {
-              //     'TapDown Gesture Detected'.logMsg();
-              //   }),
-              // ),
-              // const SizedBox(height: 20),
+            // // Using the  onTapDown Extension
+            // Container(
+            //   padding: const EdgeInsets.all(20),
+            //   color: Colors.teal,
+            //   child: const Text('TapDown Gesture').onTapDown((details) {
+            //     'TapDown Gesture Detected'.logMsg();
+            //   }),
+            // ),
+            // const SizedBox(height: 20),
 
-              // // Using the onScale Extension
-              // Container(
-              //   padding: const EdgeInsets.all(20),
-              //   color: Colors.brown,
-              //   child: const Text('Scale Gesture').onScale(
-              //     onScaleStart: (details) {
-              //       'Scale Start Gesture Detected'.logMsg();
-              //     },
-              //     onScaleUpdate: (details) {
-              //       'Scale Update Gesture Detected'.logMsg();
-              //     },
-              //     onScaleEnd: (details) {
-              //       'Scale End Gesture Detected'.logMsg();
-              //     },
-              //   ),
-              // ),
-              // const SizedBox(height: 20),
+            // // Using the onScale Extension
+            // Container(
+            //   padding: const EdgeInsets.all(20),
+            //   color: Colors.brown,
+            //   child: const Text('Scale Gesture').onScale(
+            //     onScaleStart: (details) {
+            //       'Scale Start Gesture Detected'.logMsg();
+            //     },
+            //     onScaleUpdate: (details) {
+            //       'Scale Update Gesture Detected'.logMsg();
+            //     },
+            //     onScaleEnd: (details) {
+            //       'Scale End Gesture Detected'.logMsg();
+            //     },
+            //   ),
+            // ),
+            // const SizedBox(height: 20),
 
-              // / Using Navigation Extension
-              // Example of pushPage
-              // ElevatedButton(
-              //   onPressed: () {
-              //     Get.to(const SecondPage());
-              //   },
-              //   child: const Text('Push Page'),
-              // ),
-              // const SizedBox(height: 20),
+            // / Using Navigation Extension
+            // Example of pushPage
+            // ElevatedButton(
+            //   onPressed: () {
+            //     Get.to(const SecondPage());
+            //   },
+            //   child: const Text('Push Page'),
+            // ),
+            // const SizedBox(height: 20),
 
-              // ElevatedButton(
-              //   onPressed: () {
-              // // Using the to extension method to push a new route
-              //     context.to(const SecondPage());
-              //   },
-              //   child: const Text('Navigate to Second Page'),
-              // ),
-              // ElevatedButton(
-              //   onPressed: () {
-              //     // Using the toNamed extension method to push a named route
-              //     context.toNamed('/second');
-              //   },
-              //   child: const Text('Navigate to Named Route'),
-              // ),
-              // ElevatedButton(
-              //   onPressed: () {
-              //     // Using the toWithReplace extension method to replace the current route
-              //     context.toWithReplace(const SecondPage());
-              //   },
-              //   child: const Text('Replace with Second Page'),
-              // ),
-              // ElevatedButton(
-              //   onPressed: () {
-              //     // Using the replaceWithNamed extension method to replace the current route with a named route
-              //     context.replaceWithNamed('/second');
-              //   },
-              //   child: const Text('Replace with Named Route'),
-              // ),
-              // ElevatedButton(
-              //   onPressed: () {
-              //     // Using the toAndRemoveAll extension method to navigate and remove all previous routes
-              //     context.toAndRemoveAll(
-              //       const SecondPage(),
-              //       (Route<dynamic> route) => false,
-              //     );
-              //   },
-              //   child: const Text('Navigate and Remove All'),
-              // ),
-              // ElevatedButton(
-              //   onPressed: () {
-              //     // Using the toNamedAndRemoveAll extension method to navigate to a named route and remove all previous routes
-              //     context.toNamedAndRemoveAll(
-              //       '/second',
-              //       (Route<dynamic> route) => false,
-              //     );
-              //   },
-              //   child: const Text('Named Route and Remove All'),
-              // ),
-              // ElevatedButton(
-              //   onPressed: () {
-              //     // Using the back extension method to pop the current route
-              //     context.back();
-              //   },
-              //   child: const Text('Back'),
-              // ),
-              // ElevatedButton(
-              //   onPressed: () {
-              //     // Using the backUntil extension method to pop routes until the HomePage is found
-              //     context.backUntil((Route<dynamic> route) => route.isFirst);
-              //   },
-              //   child: const Text('Back Until Home'),
-              // ),
+            // ElevatedButton(
+            //   onPressed: () {
+            // // Using the to extension method to push a new route
+            //     context.to(const SecondPage());
+            //   },
+            //   child: const Text('Navigate to Second Page'),
+            // ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     // Using the toNamed extension method to push a named route
+            //     context.toNamed('/second');
+            //   },
+            //   child: const Text('Navigate to Named Route'),
+            // ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     // Using the toWithReplace extension method to replace the current route
+            //     context.toWithReplace(const SecondPage());
+            //   },
+            //   child: const Text('Replace with Second Page'),
+            // ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     // Using the replaceWithNamed extension method to replace the current route with a named route
+            //     context.replaceWithNamed('/second');
+            //   },
+            //   child: const Text('Replace with Named Route'),
+            // ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     // Using the toAndRemoveAll extension method to navigate and remove all previous routes
+            //     context.toAndRemoveAll(
+            //       const SecondPage(),
+            //       (Route<dynamic> route) => false,
+            //     );
+            //   },
+            //   child: const Text('Navigate and Remove All'),
+            // ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     // Using the toNamedAndRemoveAll extension method to navigate to a named route and remove all previous routes
+            //     context.toNamedAndRemoveAll(
+            //       '/second',
+            //       (Route<dynamic> route) => false,
+            //     );
+            //   },
+            //   child: const Text('Named Route and Remove All'),
+            // ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     // Using the back extension method to pop the current route
+            //     context.back();
+            //   },
+            //   child: const Text('Back'),
+            // ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     // Using the backUntil extension method to pop routes until the HomePage is found
+            //     context.backUntil((Route<dynamic> route) => route.isFirst);
+            //   },
+            //   child: const Text('Back Until Home'),
+            // ),
 
-              // // Centers the text within its parent widget
-              // const Text('Centered Text').centered(),
+            // // Centers the text within its parent widget
+            // const Text('Centered Text').centered(),
 
-              // // Adds a blue border with a width of 2 around the text
-              // const Text('Text with Border')
-              //     .withBorder(color: Colors.blue, width: 2),
+            // // Adds a blue border with a width of 2 around the text
+            // const Text('Text with Border')
+            //     .withBorder(color: Colors.blue, width: 2),
 
-              // // Sets a yellow background color to the text widget
-              // const Text('Background Color').withBackgroundColor(Colors.yellow),
+            // // Sets a yellow background color to the text widget
+            // const Text('Background Color').withBackgroundColor(Colors.yellow),
 
-              // // Adds a circular border radius of 12 to the image
-              // Image.network(
-              //         'https://images.pexels.com/photos/301599/pexels-photo-301599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
-              //     .withCircularBorderRadius(12)
-              //     .p(8),
+            // // Adds a circular border radius of 12 to the image
+            // Image.network(
+            //         'https://images.pexels.com/photos/301599/pexels-photo-301599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+            //     .withCircularBorderRadius(12)
+            //     .p(8),
 
-              // // Adds a shadow with a blur radius of 5 and an offset to the text
-              // const Text('Shadow')
-              //     .withShadow(blurRadius: 5, offset: const Offset(2, 2)),
+            // // Adds a shadow with a blur radius of 5 and an offset to the text
+            // const Text('Shadow')
+            //     .withShadow(blurRadius: 5, offset: const Offset(2, 2)),
 
-              // // Sets the opacity of the text to 0.5 (50% opacity)
-              // const Text('Opacity').withOpacity(0.5),
+            // // Sets the opacity of the text to 0.5 (50% opacity)
+            // const Text('Opacity').withOpacity(0.5),
 
-              // // Rotates the text widget by an angle of 0.5 radians
-              // const Text('Rotated Text').rotated(0.5),
+            // // Rotates the text widget by an angle of 0.5 radians
+            // const Text('Rotated Text').rotated(0.5),
 
-              // // Scales the text widget by a factor of 1.5
-              // const Text('Scaled Text').scaled(1.5),
+            // // Scales the text widget by a factor of 1.5
+            // const Text('Scaled Text').scaled(1.5),
 
-              // // Translates (moves) the text widget by an offset of (10, 10)
-              // const Text('Translated Text').translated(const Offset(10, 10)),
+            // // Translates (moves) the text widget by an offset of (10, 10)
+            // const Text('Translated Text').translated(const Offset(10, 10)),
 
-              // // Aligns the text widget to the top-left within its parent
-              // const Text('Aligned Text').aligned(Alignment.topLeft),
+            // // Aligns the text widget to the top-left within its parent
+            // const Text('Aligned Text').aligned(Alignment.topLeft),
 
-              // // Expands the text widget to fill the available space within a Flex container
-              // const Text('Expanded Text').expanded(),
+            // // Expands the text widget to fill the available space within a Flex container
+            // const Text('Expanded Text').expanded(),
 
-              // // Makes the text widget flexible within a Flex container with a flex factor of 2
-              // const Text('Flexible Text').flexible(flex: 2),
+            // // Makes the text widget flexible within a Flex container with a flex factor of 2
+            // const Text('Flexible Text').flexible(flex: 2),
 
-              // // Adds a tooltip with the message 'This is a tooltip' to the text widget
-              // const Text('Tooltip Text').withTooltip('This is a tooltip'),
+            // // Adds a tooltip with the message 'This is a tooltip' to the text widget
+            // const Text('Tooltip Text').withTooltip('This is a tooltip'),
 
-              // // Toggles the visibility of the text widget (visible when true)
-              // const Text('Visibility Text').visibility(true),
+            // // Toggles the visibility of the text widget (visible when true)
+            // const Text('Visibility Text').visibility(true),
 
-              // // Wraps the image in a Hero widget for shared element transitions with the tag 'heroTag'
-              // Image.network(
-              //   'https://images.pexels.com/photos/301599/pexels-photo-301599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-              //   height: 100,
-              // ).withHero('heroTag').p(10),
+            // // Wraps the image in a Hero widget for shared element transitions with the tag 'heroTag'
+            // Image.network(
+            //   'https://images.pexels.com/photos/301599/pexels-photo-301599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+            //   height: 100,
+            // ).withHero('heroTag').p(10),
 
-              // // Fits the text widget within its parent using a FittedBox
-              // Container(
-              //     color: Colors.amber,
-              //     child: const Text('FittedBox Text').fittedBox()),
+            // // Fits the text widget within its parent using a FittedBox
+            // Container(
+            //     color: Colors.amber,
+            //     child: const Text('FittedBox Text').fittedBox()),
 
-              // Container(
-              //   width: 100,
-              //   height: 100,
-              //   color: Colors.blue,
-              // ).withCircle(),
-              // Container(
-              //   width: 100,
-              //   height: 100,
-              //   color: Colors.green,
-              // ).withTriangle(),
-              // Container(
-              //   width: 100,
-              //   height: 100,
-              //   color: Colors.red,
-              // ).withSquare(),
-              // Container(
-              //   width: 150,
-              //   height: 100,
-              //   color: Colors.orange,
-              // ).withRectangle(),
-              // Container(
-              //   width: 100,
-              //   height: 100,
-              //   color: Colors.purple,
-              // ).withPentagon(),
-              // Container(
-              //   width: 100,
-              //   height: 100,
-              //   color: Colors.teal,
-              // ).withOctagon(),
-              // Container(
-              //   // width: 200,
-              //   height: 100,
-              //   color: Colors.blueAccent,
-              // ).withRiverFlow(),
+            // Container(
+            //   width: 100,
+            //   height: 100,
+            //   color: Colors.blue,
+            // ).withCircle(),
+            // Container(
+            //   width: 100,
+            //   height: 100,
+            //   color: Colors.green,
+            // ).withTriangle(),
+            // Container(
+            //   width: 100,
+            //   height: 100,
+            //   color: Colors.red,
+            // ).withSquare(),
+            // Container(
+            //   width: 150,
+            //   height: 100,
+            //   color: Colors.orange,
+            // ).withRectangle(),
+            // Container(
+            //   width: 100,
+            //   height: 100,
+            //   color: Colors.purple,
+            // ).withPentagon(),
+            // Container(
+            //   width: 100,
+            //   height: 100,
+            //   color: Colors.teal,
+            // ).withOctagon(),
+            // Container(
+            //   // width: 200,
+            //   height: 100,
+            //   color: Colors.blueAccent,
+            // ).withRiverFlow(),
 
-              Text(
-                'Screen Width: ${context.screenWidth}',
-                style: context.texttheme.bodyLarge,
+            Text(
+              'Screen Width: ${context.screenWidth}',
+              style: context.texttheme.bodyLarge,
+            ),
+            Text(
+              'Screen Height: ${context.screenHeight}',
+              style: context.texttheme.bodyLarge,
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                if (context.isKeyboardOpen) {
+                  context.showSnackBar('Keyboard is open');
+                } else {
+                  context.showSnackBar('Keyboard is closed');
+                }
+              },
+              child: const Text('Check Keyboard Status'),
+            ),
+
+            const Text(
+              'Original Color',
+              style: TextStyle(color: Colors.blue),
+            ),
+            Text(
+              'Darkened Color',
+              style: TextStyle(color: Colors.blue.darken(0.2)),
+            ),
+            Text(
+              'Lightened Color',
+              style: TextStyle(color: Colors.blue.lighten(0.2)),
+            ),
+            Text(
+              'Hex Value: ${Colors.blue.toHex()}',
+            ),
+            Expanded(
+              child: Container(
+                height: 1000,
+                color: Colors.blue[100],
+                child: Text('Vertical Scroll Content')
+                    .alignTopRight()
+                    .pH(16)
+                    .pV(16),
+              )
+                  .verticalScroll(
+                    physics: const ClampingScrollPhysics(),
+                  )
+                  .pV(10)
+                  .pH(16),
+            ),
+            // Example of horizontal scrolling
+            Row(
+              children: List.generate(
+                20,
+                (index) => Container(
+                  width: 200,
+                  height: 100,
+                  margin: const EdgeInsets.all(8.0),
+                  color: Colors.green[100 + (index * 100) % 900],
+                  child: Center(child: Text('Item $index')),
+                ),
               ),
-              Text(
-                'Screen Height: ${context.screenHeight}',
-                style: context.texttheme.bodyLarge,
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  if (context.isKeyboardOpen) {
-                    context.showSnackBar('Keyboard is open');
-                  } else {
-                    context.showSnackBar('Keyboard is closed');
-                  }
-                },
-                child: const Text('Check Keyboard Status'),
-              ),
-
-              const Text(
-                'Original Color',
-                style: TextStyle(color: Colors.blue),
-              ),
-              Text(
-                'Darkened Color',
-                style: TextStyle(color: Colors.blue.darken(0.2)),
-              ),
-              Text(
-                'Lightened Color',
-                style: TextStyle(color: Colors.blue.lighten(0.2)),
-              ),
-              Text(
-                'Hex Value: ${Colors.blue.toHex()}',
-              ),
-            ],
-          ),
+            )
+                .horizontalScroll(
+                  physics: const BouncingScrollPhysics(),
+                )
+                .pH(16),
+            Row(
+              children: [
+                Container(height: 50, width: 50, color: Colors.red),
+                Space(
+                  10,
+                ),
+                Container(height: 50, width: 50, color: Colors.red),
+              ],
+            ).pH(16),
+            Space(50, color: Colors.red),
+            Container(height: 50, width: 50, color: Colors.amber)
+                .alignCenterLeft()
+                .pH(16),
+            10.hBox
+          ],
         ),
       ),
     );

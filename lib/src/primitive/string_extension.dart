@@ -438,8 +438,17 @@ extension ColorExtensions on Color {
   /// Converts the color to its hexadecimal string representation.
   ///
   /// Returns the hexadecimal color code in the format '#RRGGBB'.
-  String toHex() =>
-      '#${red.toRadixString(16).padLeft(2, '0')}${green.toRadixString(16).padLeft(2, '0')}${blue.toRadixString(16).padLeft(2, '0')}';
+  String toHex({bool hashSign = false, bool withAlpha = false}) {
+    final alpha = (a * 255).toInt().toRadixString(16).padLeft(2, '0');
+    final red = (r * 255).toInt().toRadixString(16).padLeft(2, '0');
+    final green = (g * 255).toInt().toRadixString(16).padLeft(2, '0');
+    final blue = (b * 255).toInt().toRadixString(16).padLeft(2, '0');
+
+    return '${hashSign ? '#' : ''}'
+            '${withAlpha ? alpha : ''}'
+            '$red$green$blue'
+        .toUpperCase();
+  }
 }
 
 /// Extension on [num] to provide utility methods for number formatting and conversion.
