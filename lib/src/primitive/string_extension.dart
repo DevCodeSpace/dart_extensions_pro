@@ -85,19 +85,12 @@ extension StringExtensions on String {
 
   /// Converts the string to camel case.
   String toCamelCase() {
-    return split(' ')
-        .map((word) => word.isEmpty
-            ? word
-            : word[0].toUpperCase() + word.substring(1).toLowerCase())
-        .join('');
+    return split(' ').map((word) => word.isEmpty ? word : word[0].toUpperCase() + word.substring(1).toLowerCase()).join('');
   }
 
   /// Converts the string to snake case.
   String toSnakeCase() {
-    return replaceAllMapped(
-            RegExp(r'[A-Z]'), (match) => '_${match.group(0)!.toLowerCase()}')
-        .replaceAll(RegExp(r'\s+'), '_')
-        .toLowerCase();
+    return replaceAllMapped(RegExp(r'[A-Z]'), (match) => '_${match.group(0)!.toLowerCase()}').replaceAll(RegExp(r'\s+'), '_').toLowerCase();
   }
 
   /// Reverses the string.
@@ -117,10 +110,7 @@ extension StringExtensions on String {
 
   /// Returns the initials of the string.
   String initials() {
-    return split(' ')
-        .where((word) => word.isNotEmpty)
-        .map((word) => word[0].toUpperCase())
-        .join('');
+    return split(' ').where((word) => word.isNotEmpty).map((word) => word[0].toUpperCase()).join('');
   }
 
   /// Checks if the string is a strong password.
@@ -131,8 +121,7 @@ extension StringExtensions on String {
   /// - Contain at least one digit
   /// - Contain at least one special character
   bool isStrongPassword() {
-    final passwordRegex = RegExp(
-        r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$');
+    final passwordRegex = RegExp(r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$');
     return passwordRegex.hasMatch(this);
   }
 
@@ -189,16 +178,15 @@ extension StringExtensions on String {
   ///
   /// Examples:
   ///   - 'hello'.wrap("*") returns '*hello*'
-  ///   - 'html'.wrap('<', '>') returns '<html>'
-  String wrap(String prefix, [String? suffix]) =>
-      '$prefix$this${suffix ?? prefix}';
+  ///   - `'html'.wrap('<', '>')` returns `'<html>'`
+  String wrap(String prefix, [String? suffix]) => '$prefix$this${suffix ?? prefix}';
 
   /// Removes [prefix] and [suffix] from the string if they exist.
   /// If [suffix] is not provided, [prefix] is used as [suffix].
   ///
   /// Examples:
   ///   - '*hello*'.unwrap("*") returns 'hello'
-  ///   - '<html>'.unwrap('<', '>') returns 'html'
+  ///   - `'<html>'.unwrap('<', '>')`  returns `'html'`
   String unwrap(String prefix, [String? suffix]) {
     suffix ??= prefix;
     if (startsWith(prefix)) {
@@ -232,16 +220,14 @@ extension StringExtensions on String {
   /// Examples:
   ///   - 'hello-world'.removeIfHasPrefix('hello') returns '-world'
   ///   - 'hello-world'.removeIfHasPrefix('world') returns 'hello-world'
-  String removeIfHasPrefix(String prefix) =>
-      startsWith(prefix) ? substring(prefix.length) : this;
+  String removeIfHasPrefix(String prefix) => startsWith(prefix) ? substring(prefix.length) : this;
 
   /// Removes the specified suffix from the string if it exists.
   ///
   /// Examples:
   ///   - 'hello-world'.removeIfHasSuffix('world') returns 'hello-'
   ///   - 'hello-world'.removeIfHasSuffix('hello') returns 'hello-world'
-  String removeIfHasSuffix(String suffix) =>
-      endsWith(suffix) ? substring(0, length - suffix.length) : this;
+  String removeIfHasSuffix(String suffix) => endsWith(suffix) ? substring(0, length - suffix.length) : this;
 
   /// Checks if the string can be parsed as a binary number (only contains 1's and 0's).
   bool get isBinary => toIntOrNull(radix: 2) != null;
@@ -265,8 +251,7 @@ extension StringExtensions on String {
 
   /// Tokenizes [this] into words by splitting it with spaces.
   /// Only non-empty words are included.
-  List<String> get words =>
-      trim().split(' ').where((element) => element.hasContent).toList();
+  List<String> get words => trim().split(' ').where((element) => element.hasContent).toList();
 
   /// Checks if the string is blank (contains only whitespace characters or is empty).
   bool get isBlank => trim().isEmpty;
@@ -283,8 +268,7 @@ extension StringExtensions on String {
   /// object with keys of type [String] and values of type [dynamic].
   ///
   /// - Returns: A [Map] containing key-value pairs representing the JSON object.
-  Map<String, dynamic> decodeJson() =>
-      json.decode(this) as Map<String, dynamic>;
+  Map<String, dynamic> decodeJson() => json.decode(this) as Map<String, dynamic>;
 
   /// Converts a JSON-encoded string into a [List] of [Map]s with [String] keys and [dynamic] values.
   ///
@@ -292,16 +276,14 @@ extension StringExtensions on String {
   /// a JSON object with keys of type [String] and values of type [dynamic].
   ///
   /// - Returns: A [List] of [Map]s, each containing key-value pairs representing the JSON objects.
-  List<Map<String, dynamic>> decodeJsonArray() =>
-      List<Map<String, dynamic>>.from(json.decode(this) as Iterable);
+  List<Map<String, dynamic>> decodeJsonArray() => List<Map<String, dynamic>>.from(json.decode(this) as Iterable);
 
   /// Compares two strings for equality, ignoring case differences.
   ///
   /// - Parameter matcher: The string to compare with the original string.
   /// - Returns: A boolean indicating whether the two strings are equal when
   ///            case differences are ignored.
-  bool equalsToIgnoreCase(String matcher) =>
-      toLowerCase() == matcher.toLowerCase();
+  bool equalsToIgnoreCase(String matcher) => toLowerCase() == matcher.toLowerCase();
 
   /// Counts occurrences of a character in a string.
   ///
@@ -326,9 +308,7 @@ extension StringExtensions on String {
   String title() => split(' ').map((e) => e.iscapitalize()).join(' ');
 
   /// Toggles the case of each character.
-  String get toggledCase => characters
-      .map((e) => e.toUpperCase() == e ? e.toLowerCase() : e.toUpperCase())
-      .join();
+  String get toggledCase => characters.map((e) => e.toUpperCase() == e ? e.toLowerCase() : e.toUpperCase()).join();
 
   /// Splits the string using [regex], mapping matches and non-matches with [onMatch] and [onNonMatch].
   String splitMapJoinRgex(
@@ -386,10 +366,8 @@ extension ColorExtension on String {
     // Validate hex string length and format
     if (hexStringColor.length == 6 || hexStringColor.length == 7) {
       buffer.write('ff'); // Add 'ff' for full opacity
-      buffer
-          .write(hexStringColor.replaceFirst("#", "")); // Remove '#' if present
-      return Color(
-          int.parse(buffer.toString(), radix: 16)); // Parse and create Color
+      buffer.write(hexStringColor.replaceFirst("#", "")); // Remove '#' if present
+      return Color(int.parse(buffer.toString(), radix: 16)); // Parse and create Color
     }
     throw ArgumentError('Invalid hex color format'); // Invalid format
   }
@@ -399,9 +377,7 @@ extension ColorExtension on String {
 class HexColor extends Color {
   /// Converts a hex color string to an integer color value.
   static int getColorFromHex(String hexColor) {
-    hexColor = hexColor
-        .toUpperCase()
-        .replaceAll("#", ""); // Normalize hex color string
+    hexColor = hexColor.toUpperCase().replaceAll("#", ""); // Normalize hex color string
     if (hexColor.length == 6) hexColor = "FF$hexColor"; // Add alpha if missing
     return int.parse(hexColor, radix: 16); // Parse and return color value
   }
@@ -412,7 +388,7 @@ class HexColor extends Color {
 
 extension PrintExtension on Object {
   /// Prints the object and returns it for chaining or debugging.
-  logMsg() {
+  void logMsg() {
     /// Print the object (currently does nothing).
     log('$this');
   }
@@ -432,8 +408,7 @@ extension ColorExtensions on Color {
   /// The [amount] parameter determines how much to lighten the color.
   /// A value of 0.0 returns the original color, and a value of 1.0 returns white.
   /// Defaults to 0.1 if not specified.
-  Color lighten([double amount = .1]) =>
-      Color.lerp(this, Colors.white, amount)!;
+  Color lighten([double amount = .1]) => Color.lerp(this, Colors.white, amount)!;
 
   /// Converts the color to its hexadecimal string representation.
   ///
@@ -468,8 +443,7 @@ extension NumExtensions on num {
   ///
   /// If the number is 1, returns the [singular] form.
   /// Otherwise, returns the [plural] form if provided, or appends 's' to the singular form if no plural form is specified.
-  String pluralize(String singular, [String? plural]) =>
-      this == 1 ? singular : (plural ?? '${singular}s');
+  String pluralize(String singular, [String? plural]) => this == 1 ? singular : (plural ?? '${singular}s');
 }
 
 /// Extension on [FormState] to provide utility methods for form management.

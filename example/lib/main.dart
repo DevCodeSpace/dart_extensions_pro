@@ -60,14 +60,10 @@ class MyWidget extends StatelessWidget {
     DateTime pastYear = currentDate.subtractYears(1);
 
     // Using the date comparison extension methods
-    bool isToday =
-        selectedDate.isToday(); // False, since exampleDate is not today
-    bool isTomorrow =
-        selectedDate.isTomorrow(); // False, since exampleDate is not tomorrow
-    bool wasYesterday = selectedDate
-        .wasYesterday(); // False, since exampleDate was not yesterday
-    bool isCurrentToday =
-        currentDate.isToday(); // True, since currentDate is today
+    bool isToday = selectedDate.isToday(); // False, since exampleDate is not today
+    bool isTomorrow = selectedDate.isTomorrow(); // False, since exampleDate is not tomorrow
+    bool wasYesterday = selectedDate.wasYesterday(); // False, since exampleDate was not yesterday
+    bool isCurrentToday = currentDate.isToday(); // True, since currentDate is today
 
     // Initializing now and future/past dates relative to now
     DateTime now = DateTime.now();
@@ -76,37 +72,25 @@ class MyWidget extends StatelessWidget {
     DateTime futureDate = now.addMonths(3);
 
     // Printing the results with comments
-    'Example Date: ${selectedDate.toLocal()}'
-        .logMsg(); // Example Date: 2023-07-01
-    'Current Date: ${currentDate.toLocal()}'
-        .logMsg(); // Current Date: 2024-07-15
-    'Date After 10 Days: ${dateAfter10Days.toLocal()}'
-        .logMsg(); // Date After 10 Days:2024-07-25
-    'Date After 2 Months: ${dateAfter2Months.toLocal()}'
-        .logMsg(); // Date After 2 Months: 2024-09-15
-    'Date After 1 Year: ${dateAfter1Year.toLocal()}'
-        .logMsg(); // Date After 1 Year: 2025-07-15
-    'Date 2 Months Ago: ${pastMonth.toLocal()}'
-        .logMsg(); // Date 2 Months Ago: 2024-05-15
-    'Date 10 Days Ago: ${pastDate.toLocal()}'
-        .logMsg(); // Date 10 Days Ago: 2024-07-05
-    'Date 1 Year Ago: ${pastYear.toLocal()}'
-        .logMsg(); // Date 1 Year Ago:  2023-07-15
+    'Example Date: ${selectedDate.toLocal()}'.logMsg(); // Example Date: 2023-07-01
+    'Current Date: ${currentDate.toLocal()}'.logMsg(); // Current Date: 2024-07-15
+    'Date After 10 Days: ${dateAfter10Days.toLocal()}'.logMsg(); // Date After 10 Days:2024-07-25
+    'Date After 2 Months: ${dateAfter2Months.toLocal()}'.logMsg(); // Date After 2 Months: 2024-09-15
+    'Date After 1 Year: ${dateAfter1Year.toLocal()}'.logMsg(); // Date After 1 Year: 2025-07-15
+    'Date 2 Months Ago: ${pastMonth.toLocal()}'.logMsg(); // Date 2 Months Ago: 2024-05-15
+    'Date 10 Days Ago: ${pastDate.toLocal()}'.logMsg(); // Date 10 Days Ago: 2024-07-05
+    'Date 1 Year Ago: ${pastYear.toLocal()}'.logMsg(); // Date 1 Year Ago:  2023-07-15
 
     'Is Example Date Today? $isToday'.logMsg(); // Is Example Date Today? true
-    'Is Example Date Tomorrow? $isTomorrow'
-        .logMsg(); // Is Example Date Tomorrow? false
-    'Was Example Date Yesterday? $wasYesterday'
-        .logMsg(); // Was Example Date Yesterday? false
+    'Is Example Date Tomorrow? $isTomorrow'.logMsg(); // Is Example Date Tomorrow? false
+    'Was Example Date Yesterday? $wasYesterday'.logMsg(); // Was Example Date Yesterday? false
 
-    'Is Current Date Today? $isCurrentToday'
-        .logMsg(); // Is Current Date Today? true
+    'Is Current Date Today? $isCurrentToday'.logMsg(); // Is Current Date Today? true
 
     'Current Date: ${now.toLocal()}'.logMsg(); // Current Date: 2024-07-15
     'Yesterday: ${yesterday.toLocal()}'.logMsg(); // Yesterday: 2024-07-14
     'Tomorrow: ${tomorrow.toLocal()}'.logMsg(); // Tomorrow: 2024-07-16
-    'Date 3 Months Later: ${futureDate.toLocal()}'
-        .logMsg(); // Date 3 Months Later: 2024-10-15
+    'Date 3 Months Later: ${futureDate.toLocal()}'.logMsg(); // Date 3 Months Later: 2024-10-15
 
     String? example = "hello world";
     String email = "test@example.com";
@@ -122,9 +106,7 @@ class MyWidget extends StatelessWidget {
     email.isValidEmail().logMsg(); // Output: true
     url.isValidUrl().logMsg(); // Output: true
     number.isNumeric().logMsg(); // Output: true
-    whitespace
-        .isremoveAllWhitespace()
-        .logMsg(); // Output: Astringwithwhitespace
+    whitespace.isremoveAllWhitespace().logMsg(); // Output: Astringwithwhitespace
     palindrome.isPalindrome().logMsg(); // Output: true
     example.toCamelCase().logMsg(); // Output: HelloWorld
     mixedCase.toSnakeCase().logMsg(); // Output: hello_world
@@ -134,8 +116,7 @@ class MyWidget extends StatelessWidget {
     example.initials().logMsg(); // Output: HW
 
     'Hello, World!'.logMsg(); // Prints 'Hello, World!'
-    ("😂".doesNotContainEmoji ? "not is emoji 😃" : "its emoji")
-        .logMsg(); // Output: its emoji
+    ("😂".doesNotContainEmoji ? "not is emoji 😃" : "its emoji").logMsg(); // Output: its emoji
     "Admin@123".isStrongPassword().logMsg();
     "8865745411".isIndianMobileNumber.logMsg();
     "Admin Ad".isUserName().logMsg();
@@ -567,10 +548,7 @@ class MyWidget extends StatelessWidget {
               child: Container(
                 height: 1000,
                 color: Colors.blue[100],
-                child: Text('Vertical Scroll Content')
-                    .alignTopRight()
-                    .pH(16)
-                    .pV(16),
+                child: Text('Vertical Scroll Content').alignTopRight().pH(16).pV(16),
               )
                   .verticalScroll(
                     physics: const ClampingScrollPhysics(),
@@ -605,9 +583,7 @@ class MyWidget extends StatelessWidget {
               ],
             ).pH(16),
             Space(50, color: Colors.red),
-            Container(height: 50, width: 50, color: Colors.amber)
-                .alignCenterLeft()
-                .pH(16),
+            Container(height: 50, width: 50, color: Colors.amber).alignCenterLeft().pH(16),
             10.hBox
           ],
         ),

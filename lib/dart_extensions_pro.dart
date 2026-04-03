@@ -1,4 +1,4 @@
-library dart_extensions_pro;
+library;
 
 export 'src/dart_extensions_pro_config.dart';
 export 'src/comparision_extension.dart';
@@ -26,11 +26,9 @@ export 'src/file/file_extension.dart';
 
 export 'src/helpers/debouncer.dart';
 export 'src/helpers/helpers.dart';
-export 'src/helpers/int_constants_io.dart';
 export 'src/helpers/int_range.dart';
 export 'src/helpers/pre_conditions.dart';
 export 'src/helpers/typedefs.dart';
-export 'src/helpers/int_constants_web.dart';
 
 export 'src/helpers/mixins/serializable_mixin.dart';
 export 'src/helpers/mixins/stream_subscription_mixin.dart';
