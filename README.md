@@ -34,7 +34,7 @@ Add dependency to your `pubspec.yaml` file & run Pub get
 
 ```yaml
 dependencies:
-  dart_extensions_pro: ^0.0.3
+  dart_extensions_pro: ^0.0.4
 ```
 And import package into your class file
 
