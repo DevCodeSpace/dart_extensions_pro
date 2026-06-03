@@ -1,3 +1,10 @@
+## 0.0.4
+
+### Fixed
+- Replaced the custom email validation regex with `package:email_validator` for more robust email validation.
+
+---
+
 ## 0.0.3
 
 ### Fixed
