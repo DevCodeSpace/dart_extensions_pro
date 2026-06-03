@@ -1,6 +1,6 @@
 name: dart_extensions_pro
 description: A Dart package that provides handy extensions and helper functions, designed to simplify and speed up development, making coding more efficient and streamlined.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/DevCodeSpace/dart_extensions_pro
 issue_tracker: https://github.com/DevCodeSpace/dart_extensions_pro/issues
 documentation: https://pub.dev/documentation/dart_extensions_pro/latest/
@@ -12,6 +12,7 @@ environment:
 dependencies:
   characters: ^1.4.0
   collection: ^1.19.1
+  email_validator: ^3.0.0
   flutter:
     sdk: flutter
   intl: ^0.20.2
